@@ -1,12 +1,37 @@
 public class RationalNumber extends RealNumber {
-     private int top;
-     private int bottom;
-     public RationalNumber(int n, int d) {
-          super(1.0 * (a / b));
-          top = n;
-          bottom = d;
-     }
-     public boolean greaterThan(RationalNumber other) {
-          return true;
-     }
+  private int numerator, denominator;
+  public RationalNumber(int nume, int deno) {
+    super(0);//this value is ignored!
+    numerator = nume;
+    if (deno == 0) {
+         numerator = 0;
+         denominator = 1;
+    }
+    else {
+         denominator = deno;
+    }
+  }
+  public double getValue() {
+       return (double)numerator / denominator;
+ }
+  public int getNumerator(){
+    return numerator;
+  }
+  public int getDenominator(){
+    return denominator;
+  }
+  /*
+  public RationalNumber reciprocal(){
+    RationalNumber recip;
+    recip = new RationalNumber(int deno, int nume);
+} */
+  public boolean equals(RationalNumber other){
+    if ( numerator == other.getNumerator() && denominator == other.getDenominator() ) {
+         return true;
+    }
+    return false;
+  }
+  public String toString(){
+    return numerator + "/" + denominator;
+  }
 }
